@@ -1,6 +1,6 @@
 class AlterGramsAddGrammerId < ActiveRecord::Migration
   def change
-    add_column :grams, :user_id, :integer
-    add_index :user_id, :integer
+    add_column :grams, :grammer_id, :integer
+    add_index :grams, :grammer_id
   end
 end
