@@ -7,8 +7,7 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -27,6 +26,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+#Add simple form
+gem 'simple_form'
+
+# Add bootstrap
+gem 'sprockets', '2.11.0'
+gem 'bootstrap-sass', '3.3.5.1'
 # Add Test gem for TDD
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
