@@ -32,6 +32,9 @@ gem 'simple_form'
 #Add devise for sign in feature
 gem 'devise'
 
+#Add Factory girl
+gem "factory_girl_rails", "~> 4.0"
+
 # Add bootstrap
 gem 'sprockets', '2.11.0'
 gem 'bootstrap-sass', '3.3.5.1'
