@@ -1,5 +1,5 @@
 class GramsController < ApplicationController
-  before_action :authenticate_grammer!, only: [:new, :create]
+  before_action :authenticate_grammer!, only: [:new, :create, :edit, :destroy, :update]
 
 
    def index
@@ -8,6 +8,7 @@ class GramsController < ApplicationController
   def destroy
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
+    return render_not_found(:forbidden) if @gram.grammer != current_grammer
     @gram.delete
     redirect_to root_path
   end
@@ -16,11 +17,13 @@ class GramsController < ApplicationController
   def edit
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
+    return render_not_found(:forbidden) if @gram.grammer != current_grammer
   end
 
   def update
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
+    return render_not_found(:forbidden) if @gram.grammer != current_grammer
 
     @gram.update_attributes(gram_params)
     if @gram.valid?
@@ -55,8 +58,8 @@ class GramsController < ApplicationController
     params.require(:gram).permit(:message)
   end
 
-  def render_not_found
-    render text: 'Not Found', status: :not_found
+  def render_not_found(status=:not_found)
+    render text: '#{status.to_s.titleize}', status: status
   end
 
 end
