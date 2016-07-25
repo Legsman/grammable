@@ -3,7 +3,7 @@ class GramsController < ApplicationController
 
 
    def index
-    @GramsController = Gram.all
+    @grams = Gram.all
   end
 
   def destroy
